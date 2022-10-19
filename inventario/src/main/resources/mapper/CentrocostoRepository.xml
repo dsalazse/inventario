@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.com.cipres.inventario.repository.CentrocostoRepository">
+    <resultMap id="BaseResultMap" type="co.com.cipres.inventario.entity.Centrocosto">
+        <!--@JPA.Support generated on 2022-10-14 15:54:11.-->
+        <!--@Table centrocosto-->
+        <id column="codigo" jdbcType="INTEGER" property="codigo"/>
+        <result column="referencia" jdbcType="INTEGER" property="referencia"/>
+        <result column="nombre" jdbcType="VARCHAR" property="nombre"/>
+        <result column="nivel" jdbcType="SMALLINT" property="nivel"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-10-14 15:54:11.-->
+        codigo, referencia, nombre, nivel
+    </sql>
+</mapper>

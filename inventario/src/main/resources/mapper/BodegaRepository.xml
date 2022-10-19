@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.com.cipres.inventario.repository.BodegaRepository">
+    <resultMap id="BaseResultMap" type="co.com.cipres.inventario.entity.Bodega">
+        <!--@JPA.Support generated on 2022-10-14 15:54:10.-->
+        <!--@Table bodega-->
+        <id column="codigo" jdbcType="INTEGER" property="codigo"/>
+        <result column="referencia" jdbcType="INTEGER" property="referencia"/>
+        <result column="identificacion" jdbcType="VARCHAR" property="identificacion"/>
+        <result column="nombre" jdbcType="VARCHAR" property="nombre"/>
+        <result column="nivel" jdbcType="SMALLINT" property="nivel"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-10-14 15:54:10.-->
+        codigo, referencia, identificacion, nombre, nivel
+    </sql>
+</mapper>

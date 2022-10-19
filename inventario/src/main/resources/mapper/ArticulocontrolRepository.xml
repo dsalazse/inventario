@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.com.cipres.inventario.repository.ArticulocontrolRepository">
+    <resultMap id="BaseResultMap" type="co.com.cipres.inventario.entity.Articulocontrol">
+        <!--@JPA.Support generated on 2022-10-14 15:54:08.-->
+        <!--@Table articulocontrol-->
+        <id column="codigo" jdbcType="BIGINT" property="codigo"/>
+        <result column="articulo" jdbcType="BIGINT" property="articulo"/>
+        <result column="maximo" jdbcType="BIGINT" property="maximo"/>
+        <result column="minimo" jdbcType="BIGINT" property="minimo"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-10-14 15:54:08.-->
+        codigo, articulo, maximo, minimo
+    </sql>
+</mapper>

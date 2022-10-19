@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.com.cipres.inventario.repository.UsuariodetalleRepository">
+    <resultMap id="BaseResultMap" type="co.com.cipres.inventario.entity.Usuariodetalle">
+        <!--@JPA.Support generated on 2022-10-14 15:54:22.-->
+        <!--@Table usuariodetalle-->
+        <id column="codigo" jdbcType="INTEGER" property="codigo"/>
+        <result column="usuario" jdbcType="INTEGER" property="usuario"/>
+        <result column="nombre" jdbcType="VARCHAR" property="nombre"/>
+        <result column="apellido" jdbcType="VARCHAR" property="apellido"/>
+        <result column="compania" jdbcType="INTEGER" property="compania"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-10-14 15:54:22.-->
+        codigo, usuario, nombre, apellido, compania
+    </sql>
+</mapper>

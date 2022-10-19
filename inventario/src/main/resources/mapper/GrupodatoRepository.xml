@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.com.cipres.inventario.repository.GrupodatoRepository">
+    <resultMap id="BaseResultMap" type="co.com.cipres.inventario.entity.Grupodato">
+        <!--@JPA.Support generated on 2022-10-14 15:54:16.-->
+        <!--@Table grupodato-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="grupofk" jdbcType="INTEGER" property="grupofk"/>
+        <result column="datofk" jdbcType="INTEGER" property="datofk"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-10-14 15:54:16.-->
+        id, grupofk, datofk
+    </sql>
+</mapper>

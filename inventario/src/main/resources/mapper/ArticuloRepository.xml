@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.com.cipres.inventario.repository.ArticuloRepository">
+    <resultMap id="BaseResultMap" type="co.com.cipres.inventario.entity.Articulo">
+        <!--@JPA.Support generated on 2022-10-14 15:54:07.-->
+        <!--@Table articulo-->
+        <id column="codigo" jdbcType="BIGINT" property="codigo"/>
+        <result column="descripcion" jdbcType="VARCHAR" property="descripcion"/>
+        <result column="compania" jdbcType="INTEGER" property="compania"/>
+        <result column="usuarioaud" jdbcType="BIGINT" property="usuarioaud"/>
+        <result column="fechahoraud" jdbcType="TIMESTAMP" property="fechahoraud"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-10-14 15:54:07.-->
+        codigo, descripcion, compania, usuarioaud, fechahoraud
+    </sql>
+</mapper>

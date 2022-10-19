@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.com.cipres.inventario.repository.TransaccionRepository">
+    <resultMap id="BaseResultMap" type="co.com.cipres.inventario.entity.Transaccion">
+        <!--@JPA.Support generated on 2022-10-14 15:54:20.-->
+        <!--@Table transaccion-->
+        <id column="codigo" jdbcType="INTEGER" property="codigo"/>
+        <result column="articulo" jdbcType="BIGINT" property="articulo"/>
+        <result column="bodega" jdbcType="BIGINT" property="bodega"/>
+        <result column="centrocosto" jdbcType="BIGINT" property="centrocosto"/>
+        <result column="tercero" jdbcType="BIGINT" property="tercero"/>
+        <result column="tipomovimiento" jdbcType="SMALLINT" property="tipomovimiento"/>
+        <result column="cantidad" jdbcType="BIGINT" property="cantidad"/>
+        <result column="valor" jdbcType="NUMERIC" property="valor"/>
+        <result column="compania" jdbcType="BIGINT" property="compania"/>
+        <result column="usuarioaud" jdbcType="BIGINT" property="usuarioaud"/>
+        <result column="fechahoraud" jdbcType="TIMESTAMP" property="fechahoraud"/>
+        <result column="fecha" jdbcType="DATE" property="fecha"/>
+        <result column="hora" jdbcType="TIME" property="hora"/>
+        <result column="vigencia" jdbcType="SMALLINT" property="vigencia"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-10-14 15:54:20.-->
+        codigo, articulo, bodega, centrocosto, tercero, tipomovimiento, cantidad, valor, compania, usuarioaud,
+        fechahoraud, fecha, hora, vigencia
+    </sql>
+</mapper>

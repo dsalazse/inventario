@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.com.cipres.inventario.repository.DatoRepository">
+    <resultMap id="BaseResultMap" type="co.com.cipres.inventario.entity.Dato">
+        <!--@JPA.Support generated on 2022-10-14 15:54:14.-->
+        <!--@Table dato-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="descripcion" jdbcType="VARCHAR" property="descripcion"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-10-14 15:54:14.-->
+        id, descripcion
+    </sql>
+</mapper>
