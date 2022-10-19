@@ -15,7 +15,7 @@ import java.util.Date;
  */
 @Data
 @Entity
-@Table(name = "transaccion")
+@Table(name = "transaccion", schema = "inventario")
 @ApiModel("Tabla de transacciones detallada")
 public class Transaccion implements Serializable {
 

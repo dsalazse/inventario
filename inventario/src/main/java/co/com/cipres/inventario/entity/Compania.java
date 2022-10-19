@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Data
 @Entity
-@Table(name = "compania")
+@Table(name = "compania", schema = "inventario")
 @ApiModel("Define una compania nombre comercial")
 public class Compania implements Serializable {
 

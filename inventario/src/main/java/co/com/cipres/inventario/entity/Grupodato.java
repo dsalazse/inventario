@@ -15,7 +15,7 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name = "grupodato")
+@Table(name = "grupodato", schema = "inventario")
 @ApiModel("Entidad de rompimiento entre grupo y dato")
 public class Grupodato implements Serializable {
 

@@ -6,12 +6,20 @@ import co.com.cipres.inventario.repository.ArticulocontrolRepository;
 import co.com.cipres.inventario.vo.ArticulocontrolQueryVO;
 import co.com.cipres.inventario.vo.ArticulocontrolUpdateVO;
 import co.com.cipres.inventario.vo.ArticulocontrolVO;
+import com.mchange.v1.util.ListUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 @Service
 public class ArticulocontrolService {
@@ -41,8 +49,9 @@ public class ArticulocontrolService {
         return toDTO(original);
     }
 
-    public Page<ArticulocontrolDTO> query(ArticulocontrolQueryVO vO) {
-        throw new UnsupportedOperationException();
+    public List<ArticulocontrolDTO> query() {
+        List<Articulocontrol> original = requireAll();
+        return toDTO(original);
     }
 
     private ArticulocontrolDTO toDTO(Articulocontrol original) {
@@ -54,5 +63,24 @@ public class ArticulocontrolService {
     private Articulocontrol requireOne(Long id) {
         return articulocontrolRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Resource not found: " + id));
+    }
+
+    private List<Articulocontrol> requireAll(){
+        return articulocontrolRepository.findAll();
+    }
+
+    private List<ArticulocontrolDTO> toDTO(List<Articulocontrol> original){
+        List<ArticulocontrolDTO> bean = new ArrayList<ArticulocontrolDTO>();
+        System.out.println("Valor original: " + original);
+
+        for(Articulocontrol source : original){
+            ArticulocontrolDTO target = new ArticulocontrolDTO();
+            BeanUtils.copyProperties(source,target);
+            bean.add(target);
+        }
+        System.out.println("Valor original: " + original);
+        System.out.println("Valor bean: " + bean);
+
+        return bean;
     }
 }

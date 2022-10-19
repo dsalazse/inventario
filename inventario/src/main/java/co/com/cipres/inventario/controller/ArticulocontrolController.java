@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Api(tags = "")
 @Validated
@@ -51,7 +52,8 @@ public class ArticulocontrolController {
 
     @GetMapping
     @ApiOperation("Retrieve by query ")
-    public Page<ArticulocontrolDTO> query(@Valid ArticulocontrolQueryVO vO) {
-        return articulocontrolService.query(vO);
+    public List<ArticulocontrolDTO> query()
+    {
+        return articulocontrolService.query();
     }
 }

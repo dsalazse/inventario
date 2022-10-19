@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name = "articulocontrol")
+@Table(name = "articulocontrol", schema = "inventario")
 public class Articulocontrol implements Serializable {
 
     private static final long serialVersionUID = 1L;

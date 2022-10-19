@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name = "usuariodetalle")
+@Table(name = "usuariodetalle", schema = "inventario")
 @ApiModel("Entidad para guardar detalle de usuarios autorizados al servicio")
 public class Usuariodetalle implements Serializable {
 

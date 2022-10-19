@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name = "datovalidador")
+@Table(name = "datovalidador", schema = "inventario")
 @ApiModel("Entidad que expresiones regulares para validar dato")
 public class Datovalidador implements Serializable {
 

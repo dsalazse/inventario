@@ -63,23 +63,12 @@ public class DatoService {
 
     private List<DatoDTO> toDTOs(List<Dato> original) {
         List<DatoDTO> bean = new ArrayList<DatoDTO>() ;
-        DatoDTO beanAux = new DatoDTO();
-        System.out.println("*** valor de original: " + original.toString());
-        /*
-        for (int i = 0; i < original.size(); i++) {
-            BeanUtils.copyProperties(original.get(i),beanAux);
-            bean.add(beanAux);
-        }
-         */
         for (Dato source: original) {
             DatoDTO target= new DatoDTO();
             BeanUtils.copyProperties(source , target);
             bean.add(target);
         }
 
-
-        System.out.println("valor de bean: " + bean.toString());
-        System.out.println("valor de original: " + original.toString());
         return bean;
     }
 }

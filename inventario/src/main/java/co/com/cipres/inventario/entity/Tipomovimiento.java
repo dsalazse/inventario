@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name = "tipomovimiento")
+@Table(name = "tipomovimiento", schema = "inventario")
 @ApiModel("Informacion de la operacion o del tipo de movimiento")
 public class Tipomovimiento implements Serializable {
 

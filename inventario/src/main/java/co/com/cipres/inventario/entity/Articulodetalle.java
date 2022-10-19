@@ -15,7 +15,7 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name = "articulodetalle")
+@Table(name = "articulodetalle", schema = "inventario")
 @ApiModel("Inventario de servicios articulos el detalle")
 public class Articulodetalle implements Serializable {
 

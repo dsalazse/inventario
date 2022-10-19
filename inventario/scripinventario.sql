@@ -371,3 +371,16 @@ insert into inventario.grupodato(id,grupofk,datofk) values (20,1,20);
 insert into inventario.grupodato(id,grupofk,datofk) values (21,1,21);
 insert into inventario.grupodato(id,grupofk,datofk) values (22,1,22);
 insert into inventario.grupodato(id,grupofk,datofk) values (23,1,23);
+
+--
+SELECT * FROM inventario.compania;
+update inventario.compania set referencia = 1 where codigo  = 2;
+
+select g.descripcion as grupo,
+       d.descripcion as dato,
+       gd.id 
+  from inventario.grupo g 
+              ,inventario.dato d 
+              ,inventario.grupodato gd
+where gd.grupofk = g.id 
+  and gd.datofk  = d.id; 
