@@ -1,6 +1,7 @@
 package co.com.cipres.inventario.vo;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -17,5 +18,12 @@ public class DatoVO implements Serializable {
 
     @NotNull(message = "descripcion can not null")
     private String descripcion;
+
+    /**
+     * Compañía a la que pertenece el grupo
+     */
+    @NotNull(message = "compania can not null")
+    @ApiModelProperty("Compañía a la que pertenece el dato")
+    private Long compania;
 
 }

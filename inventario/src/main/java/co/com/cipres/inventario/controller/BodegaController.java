@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Api(tags = "Informacion de la bodega(caja)")
 @Validated
@@ -51,7 +52,7 @@ public class BodegaController {
 
     @GetMapping
     @ApiOperation("Retrieve by query Informacion de la bodega(caja)")
-    public Page<BodegaDTO> query(@Valid BodegaQueryVO vO) {
-        return bodegaService.query(vO);
+    public List<BodegaDTO> query() {
+        return bodegaService.query();
     }
 }

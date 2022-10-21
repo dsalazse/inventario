@@ -28,6 +28,13 @@ public class CentrocostoVO implements Serializable {
     @ApiModelProperty("Auto enlace del centro de costo")
     private Long referencia;
 
+    /**
+     * Compania a la que pertenece el centro de costo
+     */
+    @NotNull(message = "compania can not null")
+    @ApiModelProperty("Compania a la que pertenece el centro de costo")
+    private Long compania;
+
 
     /**
      * Nombre del centro del costo

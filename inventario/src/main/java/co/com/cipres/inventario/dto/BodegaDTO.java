@@ -25,15 +25,20 @@ public class BodegaDTO implements Serializable {
     @ApiModelProperty("Auto enlace de la bodega(caja)")
     private Long referencia;
 
-    private String identificacion;
+    /**
+     * Compania a la que pertenece la bodega(caja)
+     */
+    @ApiModelProperty("Compania a la que pertenece la bodega(caja)")
+    private Long compania;
 
+    @ApiModelProperty("Codigo numero identificador de la bodega")
+    private String identificacion;
 
     /**
      * Nombre de la bodega(caja)
      */
     @ApiModelProperty("Nombre de la bodega(caja)")
     private String nombre;
-
 
     /**
      * Nivel de la bodega(caja)

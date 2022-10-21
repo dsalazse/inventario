@@ -6,11 +6,14 @@ import co.com.cipres.inventario.repository.CentrocostoRepository;
 import co.com.cipres.inventario.vo.CentrocostoQueryVO;
 import co.com.cipres.inventario.vo.CentrocostoUpdateVO;
 import co.com.cipres.inventario.vo.CentrocostoVO;
+import net.bytebuddy.description.type.TypeDescription;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -41,9 +44,7 @@ public class CentrocostoService {
         return toDTO(original);
     }
 
-    public Page<CentrocostoDTO> query(CentrocostoQueryVO vO) {
-        throw new UnsupportedOperationException();
-    }
+    public List<CentrocostoDTO> query() { return toDtos(queryAll());}
 
     private CentrocostoDTO toDTO(Centrocosto original) {
         CentrocostoDTO bean = new CentrocostoDTO();
@@ -54,5 +55,19 @@ public class CentrocostoService {
     private Centrocosto requireOne(Long id) {
         return centrocostoRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Resource not found: " + id));
+    }
+
+    private List<Centrocosto> queryAll(){
+        return  centrocostoRepository.findAll();
+    }
+
+    private List<CentrocostoDTO> toDtos(List<Centrocosto> original){
+        List<CentrocostoDTO> bean = new ArrayList<CentrocostoDTO>();
+        for(Centrocosto source : original){
+            CentrocostoDTO target = new CentrocostoDTO();
+            BeanUtils.copyProperties(source,target);
+            bean.add(target);
+        }
+        return bean;
     }
 }

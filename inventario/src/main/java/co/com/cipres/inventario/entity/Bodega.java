@@ -34,6 +34,13 @@ public class Bodega implements Serializable {
     @ApiModelProperty("Auto enlace de la bodega(caja)")
     private Long referencia;
 
+    /**
+     * Compania a la que pertenece la bodega(caja)
+     */
+    @Column(name = "compania", nullable = false)
+    @ApiModelProperty("Compania a la que pertenece la bodega(caja)")
+    private Long compania;
+
     @Column(name = "identificacion", nullable = false)
     private String identificacion;
 

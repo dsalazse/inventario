@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -28,5 +29,12 @@ public class GrupoVO implements Serializable {
     @NotNull(message = "descripcion can not null")
     @ApiModelProperty("Nombre del dato")
     private String descripcion;
+
+    /**
+     * Compania a la que pertenece el grupo
+     */
+    @NotNull(message = "compania can not null")
+    @ApiModelProperty("Compania a la que pertenece el grupo")
+    private Long compania;
 
 }

@@ -15,14 +15,20 @@ public class GrupoDTO implements Serializable {
     /**
      * Llave primaria de dato
      */
-    @ApiModelProperty("Llave primaria de dato")
+    @ApiModelProperty("Llave primaria de grupo")
     private Long id;
 
 
     /**
      * Nombre del dato
      */
-    @ApiModelProperty("Nombre del dato")
+    @ApiModelProperty("Nombre del grupo")
     private String descripcion;
+
+    /**
+     * Compania a la que pertenece el grupo
+     */
+    @ApiModelProperty("Compania a la que pertenece el grupo")
+    private Long compania;
 
 }

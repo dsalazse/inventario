@@ -19,6 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
@@ -71,16 +72,13 @@ public class ArticulocontrolService {
 
     private List<ArticulocontrolDTO> toDTO(List<Articulocontrol> original){
         List<ArticulocontrolDTO> bean = new ArrayList<ArticulocontrolDTO>();
-        System.out.println("Valor original: " + original);
 
         for(Articulocontrol source : original){
             ArticulocontrolDTO target = new ArticulocontrolDTO();
             BeanUtils.copyProperties(source,target);
             bean.add(target);
         }
-        System.out.println("Valor original: " + original);
-        System.out.println("Valor bean: " + bean);
-
         return bean;
+
     }
 }

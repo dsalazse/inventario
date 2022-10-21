@@ -35,6 +35,13 @@ public class Centrocosto implements Serializable {
     private Long referencia;
 
     /**
+     * Compania a la que pertenece la bodega(caja)
+     */
+    @Column(name = "compania", nullable = false)
+    @ApiModelProperty("Compania a la que pertenece el centro de costo")
+    private Long compania;
+
+    /**
      * Nombre del centro del costo
      */
     @Column(name = "nombre", nullable = false)

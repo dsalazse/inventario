@@ -19,19 +19,26 @@ public class Grupo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Llave primaria de dato
+     * Llave primaria de grupo
      */
     @Id
     @Column(name = "id", nullable = false)
-    @ApiModelProperty("Llave primaria de dato")
+    @ApiModelProperty("Llave primaria de grupo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * Nombre del dato
+     * Nombre del grupo
      */
-    @ApiModelProperty("Nombre del dato")
+    @ApiModelProperty("Nombre del grupo")
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
+
+    /**
+     * Compania a la que pertenece el grupo
+     */
+    @Column(name = "compania", nullable = false)
+    @ApiModelProperty("Compania a la que pertenece el grupo")
+    private Long compania;
 
 }

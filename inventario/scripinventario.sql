@@ -18,6 +18,7 @@ COMMENT ON SCHEMA inventario
 CREATE TABLE inventario.grupo (
    id          SERIAL NOT NULL,
    descripcion varchar(130) NOT NULL,
+   compania    int4 NOT NULL,
    constraint pk_grupo
    PRIMARY KEY (id),
    constraint uk_grupo
@@ -25,17 +26,20 @@ CREATE TABLE inventario.grupo (
 COMMENT ON TABLE inventario.grupo is 'Entidad que agrupa informacion';
 COMMENT ON COLUMN inventario.grupo.id IS 'Llave primaria de grupo';
 COMMENT ON COLUMN inventario.grupo.descripcion IS 'Nombre de la agrupacion';
+COMMENT ON COLUMN inventario.grupo.compania IS 'Compañía a la que pertenece el grupo';
 --Datos
 CREATE TABLE inventario.dato (
    id          SERIAL NOT NULL,
    descripcion varchar(130) NOT NULL,
+   compania    int4 NOT NULL,
    constraint pk_dato
    PRIMARY KEY (id),
    constraint uk_dato
    UNIQUE (descripcion));
 COMMENT ON TABLE inventario.dato is 'Entidad que contiene un dato';
-COMMENT ON COLUMN inventario.grupo.id IS 'Llave primaria de dato';
-COMMENT ON COLUMN inventario.grupo.descripcion IS 'Nombre del dato';
+COMMENT ON COLUMN inventario.dato.id IS 'Llave primaria de dato';
+COMMENT ON COLUMN inventario.dato.descripcion IS 'Nombre del dato';
+COMMENT ON COLUMN inventario.dato.compania IS 'Compañía a la que pertenece el dato';
 --Rompimiento entre grupo y datos
 --drop table inventario.grupodato cascade;
 CREATE TABLE inventario.grupodato (
@@ -195,17 +199,21 @@ COMMENT ON COLUMN inventario.articulocontrol.minimo IS 'Cantidad minima de exist
 CREATE TABLE inventario.bodega (
   codigo         SERIAL NOT NULL,
   referencia     int4,
+  compania       int4 NOT NULL,
   identificacion varchar(150) NOT NULL,
   nombre         varchar(130) NULL,
   nivel          smallint NOT NULL,
   constraint pk_bodega
   PRIMARY KEY (codigo),
   constraint uk_inventario
-  UNIQUE (nombre)
+  UNIQUE (nombre),
+  CONSTRAINT fkbodegacompania  FOREIGN KEY (compania) REFERENCES  inventario.compania(codigo)
 );
 COMMENT ON TABLE inventario.bodega is 'Informacion de la bodega(caja)';
 COMMENT ON COLUMN inventario.bodega.codigo IS 'Codigo identificador de la bodega(caja)';
 COMMENT ON COLUMN inventario.bodega.referencia IS 'Auto enlace de la bodega(caja)';
+COMMENT ON COLUMN inventario.bodega.compania IS 'Compania a la que pertenece la bodega(caja)';
+COMMENT ON COLUMN inventario.bodega.identificacion IS 'Codigo numero identificador de la bodega';
 COMMENT ON COLUMN inventario.bodega.nombre IS 'Nombre de la bodega(caja)';
 COMMENT ON COLUMN inventario.bodega.nivel IS 'Nivel de la bodega(caja)';
 --Centro de costo 
@@ -215,14 +223,17 @@ COMMENT ON COLUMN inventario.bodega.nivel IS 'Nivel de la bodega(caja)';
 CREATE TABLE inventario.centrocosto (
   codigo         SERIAL NOT NULL,
   referencia     int4,
+  compania       int4 NOT NULL,
   nombre         varchar(130) NOT NULL,
   nivel          smallint NOT NULL,
   constraint pk_centrocosto
-  PRIMARY KEY (codigo)
+  PRIMARY KEY (codigo),
+  CONSTRAINT fkcentrocostocompania  FOREIGN KEY (compania) REFERENCES  inventario.compania(codigo)
 );
 COMMENT ON TABLE inventario.centrocosto is 'Informacion del centro de costo';
 COMMENT ON COLUMN inventario.centrocosto.codigo IS 'Codigo identificador del centro de costo';
 COMMENT ON COLUMN inventario.centrocosto.referencia IS 'Auto enlace del centro de costo';
+COMMENT ON COLUMN inventario.centrocosto.compania IS 'Compania a la que pertenece el centro de costo';
 COMMENT ON COLUMN inventario.centrocosto.nombre IS 'Nombre del centro del costo';
 COMMENT ON COLUMN inventario.centrocosto.nivel IS 'Nivel del centro de costo'; 
 --Tipo movimiento (operacion) inventario
@@ -347,6 +358,8 @@ insert into inventario.dato  (id,descripcion) values(20,'Serie');
 insert into inventario.dato  (id,descripcion) values(21,'Sistema operativo');
 insert into inventario.dato  (id,descripcion) values(22,'Mes lanzamiento');
 insert into inventario.dato  (id,descripcion) values(23,'Año lanzamiento');
+-
+
 --
 insert into inventario.grupodato(id,grupofk,datofk) values (1,1,1);
 insert into inventario.grupodato(id,grupofk,datofk) values (2,1,2);

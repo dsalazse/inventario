@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -41,8 +43,8 @@ public class BodegaService {
         return toDTO(original);
     }
 
-    public Page<BodegaDTO> query(BodegaQueryVO vO) {
-        throw new UnsupportedOperationException();
+    public List<BodegaDTO> query() {
+        return toDtos(queryAll());
     }
 
     private BodegaDTO toDTO(Bodega original) {
@@ -54,5 +56,21 @@ public class BodegaService {
     private Bodega requireOne(Long id) {
         return bodegaRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Resource not found: " + id));
+    }
+
+    private List<Bodega> queryAll(){
+        return bodegaRepository.findAll();
+    }
+
+    private List<BodegaDTO> toDtos(List<Bodega> original){
+        List<BodegaDTO> bean = new ArrayList<BodegaDTO>();
+
+        for(Bodega source:original){
+            BodegaDTO target = new BodegaDTO();
+            BeanUtils.copyProperties(source,target);
+            bean.add(target);
+        }
+
+        return bean;
     }
 }

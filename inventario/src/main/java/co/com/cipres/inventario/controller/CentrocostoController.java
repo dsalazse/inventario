@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Api(tags = "Informacion del centro de costo")
 @Validated
@@ -51,7 +52,7 @@ public class CentrocostoController {
 
     @GetMapping
     @ApiOperation("Retrieve by query Informacion del centro de costo")
-    public Page<CentrocostoDTO> query(@Valid CentrocostoQueryVO vO) {
-        return centrocostoService.query(vO);
+    public List<CentrocostoDTO> query() {
+        return centrocostoService.query();
     }
 }

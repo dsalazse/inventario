@@ -28,7 +28,15 @@ public class BodegaVO implements Serializable {
     @ApiModelProperty("Auto enlace de la bodega(caja)")
     private Long referencia;
 
+    /**
+      * Compania a la que pertenece la bodega(caja)
+     */
+    @NotNull(message = "compania can not null")
+    @ApiModelProperty("Compania a la que pertenece la bodega(caja)")
+    private Long compania;
+
     @NotNull(message = "identificacion can not null")
+    @ApiModelProperty("Codigo numero identificador de la bodega")
     private String identificacion;
 
 
