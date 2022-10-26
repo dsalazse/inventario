@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Api(tags = "Entidad que contiene un dato")
 @Validated
@@ -51,7 +52,7 @@ public class DatoController {
 
     @GetMapping
     @ApiOperation("Retrieve by query Entidad que contiene un dato")
-    public Page<DatoDTO> query(@Valid DatoQueryVO vO) {
-        return datoService.query(vO);
+    public List<DatoDTO> query() {
+        return datoService.query();
     }
 }

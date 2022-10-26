@@ -14,9 +14,11 @@ public class DatoVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @NotNull(message = "id can not null")
+    @ApiModelProperty("Identificador del dato")
     private Long id;
 
     @NotNull(message = "descripcion can not null")
+    @ApiModelProperty("Nombre del dato")
     private String descripcion;
 
 
