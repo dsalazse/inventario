@@ -12,8 +12,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @ApiModel("Save Entidad que agrupa informacion")
 public class GrupoVO implements Serializable {
-    private static final long serialVersionUID = 1L;
-
+    private static final long serialVersionUID = -2685907500098780707L;
 
     /**
      * Llave primaria de dato

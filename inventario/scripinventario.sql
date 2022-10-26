@@ -14,7 +14,7 @@ COMMENT ON SCHEMA inventario
 --         Grupodato : pk(1) - 1,1. pk(2)- 1,2. pk(3) 1-3                                                                                                                          
 --Creando la informacion de grupos de datos
 --grupos 
---
+--drop table inventario.grupo cascade;
 CREATE TABLE inventario.grupo (
    id          SERIAL NOT NULL,
    descripcion varchar(130) NOT NULL,
@@ -28,6 +28,8 @@ COMMENT ON COLUMN inventario.grupo.id IS 'Llave primaria de grupo';
 COMMENT ON COLUMN inventario.grupo.descripcion IS 'Nombre de la agrupacion';
 COMMENT ON COLUMN inventario.grupo.compania IS 'Compañía a la que pertenece el grupo';
 --Datos
+--drop table inventario.dato cascade;
+drop table inventario.dato cascade;
 CREATE TABLE inventario.dato (
    id          SERIAL NOT NULL,
    descripcion varchar(130) NOT NULL,
@@ -333,32 +335,34 @@ insert into inventario.usuario(codigo,email,contrasena) values(1,'admin@cipres.c
 insert into inventario.compania(codigo,nombre,referencia,activo,usuarioaud,fechahoraud) values(1,'compañía xyz',null,true,1,(select current_timestamp));
 --
 --grupo de datos 
-insert into inventario.grupo (id,descripcion) values(1,'Características del producto');       
+insert into inventario.grupo (id,descripcion,compania) values(1,'Características del producto',1);       
 --datos
-insert into inventario.dato  (id,descripcion) values(1,'Color');
-insert into inventario.dato  (id,descripcion) values(2,'Tamaño');
-insert into inventario.dato  (id,descripcion) values(3,'Dimensiones');
-insert into inventario.dato  (id,descripcion) values(4,'Peso');
-insert into inventario.dato  (id,descripcion) values(5,'Potencia');
-insert into inventario.dato  (id,descripcion) values(6,'Precio venta');
-insert into inventario.dato  (id,descripcion) values(7,'Almacenamiento');
-insert into inventario.dato  (id,descripcion) values(8,'Procesador');
-insert into inventario.dato  (id,descripcion) values(9,'Voltaje');
-insert into inventario.dato  (id,descripcion) values(10,'Tipo conector');
-insert into inventario.dato  (id,descripcion) values(11,'Conectividad');
-insert into inventario.dato  (id,descripcion) values(12,'Bateria');
-insert into inventario.dato  (id,descripcion) values(13,'Cámara delantera');
-insert into inventario.dato  (id,descripcion) values(14,'Cámara trasera');
-insert into inventario.dato  (id,descripcion) values(15,'Memoria interna');
-insert into inventario.dato  (id,descripcion) values(16,'Pantalla');
-insert into inventario.dato  (id,descripcion) values(17,'Modelo');
-insert into inventario.dato  (id,descripcion) values(18,'Marca');
-insert into inventario.dato  (id,descripcion) values(19,'Línea');
-insert into inventario.dato  (id,descripcion) values(20,'Serie');
-insert into inventario.dato  (id,descripcion) values(21,'Sistema operativo');
-insert into inventario.dato  (id,descripcion) values(22,'Mes lanzamiento');
-insert into inventario.dato  (id,descripcion) values(23,'Año lanzamiento');
+insert into inventario.dato  (id,descripcion,compania) values(1,'Color',1);
+insert into inventario.dato  (id,descripcion,compania) values(2,'Tamaño',1);
+insert into inventario.dato  (id,descripcion,compania) values(3,'Dimensiones',1);
+insert into inventario.dato  (id,descripcion,compania) values(4,'Peso',1);
+insert into inventario.dato  (id,descripcion,compania) values(5,'Potencia',1);
+insert into inventario.dato  (id,descripcion,compania) values(6,'Precio venta',1);
+insert into inventario.dato  (id,descripcion,compania) values(7,'Almacenamiento',1);
+insert into inventario.dato  (id,descripcion,compania) values(8,'Procesador',1);
+insert into inventario.dato  (id,descripcion,compania) values(9,'Voltaje',1);
+insert into inventario.dato  (id,descripcion,compania) values(10,'Tipo conector',1);
+insert into inventario.dato  (id,descripcion,compania) values(11,'Conectividad',1);
+insert into inventario.dato  (id,descripcion,compania) values(12,'Bateria',1);
+insert into inventario.dato  (id,descripcion,compania) values(13,'Cámara delantera',1);
+insert into inventario.dato  (id,descripcion,compania) values(14,'Cámara trasera',1);
+insert into inventario.dato  (id,descripcion,compania) values(15,'Memoria interna',1);
+insert into inventario.dato  (id,descripcion,compania) values(16,'Pantalla',1);
+insert into inventario.dato  (id,descripcion,compania) values(17,'Modelo',1);
+insert into inventario.dato  (id,descripcion,compania) values(18,'Marca',1);
+insert into inventario.dato  (id,descripcion,compania) values(19,'Línea',1);
+insert into inventario.dato  (id,descripcion,compania) values(20,'Serie',1);
+insert into inventario.dato  (id,descripcion,compania) values(21,'Sistema operativo',1);
+insert into inventario.dato  (id,descripcion,compania) values(22,'Mes lanzamiento',1);
+insert into inventario.dato  (id,descripcion,compania) values(23,'Año lanzamiento',1);
+--
 -
+insert into inventario.dato  (id,descripcion,compania) values(24, 'Registro civil de nacimiento',1); --11
 
 --
 insert into inventario.grupodato(id,grupofk,datofk) values (1,1,1);

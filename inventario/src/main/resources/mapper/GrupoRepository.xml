@@ -7,9 +7,10 @@
         <!--@Table grupo-->
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="descripcion" jdbcType="VARCHAR" property="descripcion"/>
+        <result column="compania" jdbcType="INTEGER" property="compania"/>
     </resultMap>
     <sql id="Base_Column_List">
         <!--@JPA.Support generated on 2022-10-14 15:54:15.-->
-        id, descripcion
+        id, descripcion,compania
     </sql>
 </mapper>

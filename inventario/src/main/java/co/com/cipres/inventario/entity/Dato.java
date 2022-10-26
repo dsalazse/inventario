@@ -20,8 +20,8 @@ public class Dato implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false)
-    @ApiModelProperty("Llave primaria de dato")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty("Llave primaria del dato")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "descripcion", nullable = false)
@@ -29,10 +29,10 @@ public class Dato implements Serializable {
     private String descripcion;
 
     /**
-     * Compania a la que pertenece el grupo
+     * Compañia a la que pertenece el dato
      */
-    @Column(name = "compania", nullable = false)
-    @ApiModelProperty("Compania a la que pertenece el dato")
+    @Column(name = "compania")
+    @ApiModelProperty("Compañia a la que pertenece el dato")
     private Long compania;
 
 }

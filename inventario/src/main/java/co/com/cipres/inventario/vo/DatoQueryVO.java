@@ -2,6 +2,7 @@ package co.com.cipres.inventario.vo;
 
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,5 +15,12 @@ public class DatoQueryVO implements Serializable {
     private Long id;
 
     private String descripcion;
+
+
+    /**
+     * Compañia a la que pertenece el dato
+     */
+    @ApiModelProperty("Compañia a la que pertenece el dato")
+    private Long compania;
 
 }

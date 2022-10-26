@@ -4,9 +4,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
 
 @Data
 @ApiModel("Save Entidad que contiene un dato")
@@ -19,11 +19,11 @@ public class DatoVO implements Serializable {
     @NotNull(message = "descripcion can not null")
     private String descripcion;
 
+
     /**
-     * Compañía a la que pertenece el grupo
+     * Compañia a la que pertenece el dato
      */
-    @NotNull(message = "compania can not null")
-    @ApiModelProperty("Compañía a la que pertenece el dato")
+    @ApiModelProperty("Compañia a la que pertenece el dato")
     private Long compania;
 
 }

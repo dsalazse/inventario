@@ -15,8 +15,7 @@ import java.io.Serializable;
 @Table(name = "grupo", schema = "inventario")
 @ApiModel("Entidad que agrupa informacion")
 public class Grupo implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 6572527293759832579L;
 
     /**
      * Llave primaria de grupo
