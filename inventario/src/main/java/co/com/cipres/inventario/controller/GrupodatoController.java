@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Api(tags = "Entidad de rompimiento entre grupo y dato")
 @Validated
@@ -51,7 +52,7 @@ public class GrupodatoController {
 
     @GetMapping
     @ApiOperation("Retrieve by query Entidad de rompimiento entre grupo y dato")
-    public Page<GrupodatoDTO> query(@Valid GrupodatoQueryVO vO) {
-        return grupodatoService.query(vO);
+    public List<GrupodatoDTO> query(@Valid GrupodatoQueryVO vO) {
+        return grupodatoService.query();
     }
 }

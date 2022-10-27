@@ -11,8 +11,11 @@ import java.io.Serializable;
 @ApiModel("Entidad que contiene un dato")
 public class DatoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty("Llave primaria de dato")
     private Long id;
 
+    @ApiModelProperty("Nombre del dato")
     private String descripcion;
 
 

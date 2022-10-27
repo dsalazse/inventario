@@ -13,7 +13,7 @@ public class GrupoDTO implements Serializable {
     private static final long serialVersionUID = 901621583924807625L;
 
     /**
-     * Llave primaria de dato
+     * Llave primaria de grupo
      */
     @ApiModelProperty("Llave primaria de grupo")
     private Long id;

@@ -1,16 +1,17 @@
 package co.com.cipres.inventario.service;
 
+import co.com.cipres.inventario.dto.DatoDTO;
 import co.com.cipres.inventario.dto.GrupodatoDTO;
 import co.com.cipres.inventario.entity.Grupodato;
 import co.com.cipres.inventario.repository.GrupodatoRepository;
-import co.com.cipres.inventario.vo.GrupodatoQueryVO;
 import co.com.cipres.inventario.vo.GrupodatoUpdateVO;
 import co.com.cipres.inventario.vo.GrupodatoVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -41,9 +42,7 @@ public class GrupodatoService {
         return toDTO(original);
     }
 
-    public Page<GrupodatoDTO> query(GrupodatoQueryVO vO) {
-        throw new UnsupportedOperationException();
-    }
+    public List<GrupodatoDTO> query() { return toDtos(grupodatoRepository.findAll());  }
 
     private GrupodatoDTO toDTO(Grupodato original) {
         GrupodatoDTO bean = new GrupodatoDTO();
@@ -55,4 +54,17 @@ public class GrupodatoService {
         return grupodatoRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Resource not found: " + id));
     }
+
+    private List<GrupodatoDTO> toDtos(List<Grupodato> original){
+        List<GrupodatoDTO> bean = new ArrayList<GrupodatoDTO>();
+        for(Grupodato source:original){
+            GrupodatoDTO target = new GrupodatoDTO();
+            BeanUtils.copyProperties(source,target);
+            bean.add(target);
+        }
+
+        return bean;
+    }
+
+
 }

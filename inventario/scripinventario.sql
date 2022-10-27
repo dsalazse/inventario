@@ -363,6 +363,19 @@ insert into inventario.dato  (id,descripcion,compania) values(23,'Año lanzamien
 --
 -
 insert into inventario.dato  (id,descripcion,compania) values(24, 'Registro civil de nacimiento',1); --11
+insert into inventario.dato  (id,descripcion,compania) values(25, 'Tarjeta de identidad',1); --12
+insert into inventario.dato  (id,descripcion,compania) values(26, 'Cédula de ciudadanía',1); --13 
+insert into inventario.dato  (id,descripcion,compania) values(27, 'Certificado de la Registraduría para sucesiones ilíquidas de personas naturales que no tienen ningún documento de identificación',1); --14
+insert into inventario.dato  (id,descripcion,compania) values(28, 'Tipo de documento que identifica una sucesión ilíquida, expedido por la notaria o por un juzgado',1); --15
+insert into inventario.dato  (id,descripcion,compania) values(29, 'Tarjeta de extranjería',1); --21 
+insert into inventario.dato  (id,descripcion,compania) values(30, 'Cédula de extranjería',1); --22
+insert into inventario.dato  (id,descripcion,compania) values(31, 'NIT',1); --31
+insert into inventario.dato  (id,descripcion,compania) values(32, 'Identificación de extranjeros diferente al NIT asignado DIAN',1); --33
+insert into inventario.dato  (id,descripcion,compania) values(33, 'Pasaporte',1);--41
+insert into inventario.dato  (id,descripcion,compania) values(34, 'Documento de identificación extranjero',1); --42
+insert into inventario.dato  (id,descripcion,compania) values(35, 'Sin identificación del exterior o para uso definido por la DIAN',1); --43
+insert into inventario.dato  (id,descripcion,compania) values(36, 'Documento de Identificación extranjero Persona Jurídica',1); --44
+insert into inventario.dato  (id,descripcion,compania) values(37, 'Carné Diplomático: Documento expedido por el Ministerio de Relaciones Exteriores a los miembros de la misiones',1);--46
 
 --
 insert into inventario.grupodato(id,grupofk,datofk) values (1,1,1);
@@ -389,6 +402,22 @@ insert into inventario.grupodato(id,grupofk,datofk) values (21,1,21);
 insert into inventario.grupodato(id,grupofk,datofk) values (22,1,22);
 insert into inventario.grupodato(id,grupofk,datofk) values (23,1,23);
 
+insert into inventario.grupodato(id,grupofk,datofk) values (24,2,24);
+insert into inventario.grupodato(id,grupofk,datofk) values (25,2,25);
+insert into inventario.grupodato(id,grupofk,datofk) values (26,2,26);
+insert into inventario.grupodato(id,grupofk,datofk) values (27,2,27);
+insert into inventario.grupodato(id,grupofk,datofk) values (28,2,28);
+insert into inventario.grupodato(id,grupofk,datofk) values (29,2,29);
+insert into inventario.grupodato(id,grupofk,datofk) values (30,2,30);
+insert into inventario.grupodato(id,grupofk,datofk) values (31,2,31);
+insert into inventario.grupodato(id,grupofk,datofk) values (32,2,32);
+insert into inventario.grupodato(id,grupofk,datofk) values (33,2,33);
+insert into inventario.grupodato(id,grupofk,datofk) values (34,2,34);
+insert into inventario.grupodato(id,grupofk,datofk) values (35,2,35);
+insert into inventario.grupodato(id,grupofk,datofk) values (36,2,36);
+insert into inventario.grupodato(id,grupofk,datofk) values (37,2,37);
+
+
 --
 SELECT * FROM inventario.compania;
 update inventario.compania set referencia = 1 where codigo  = 2;
@@ -401,3 +430,14 @@ select g.descripcion as grupo,
               ,inventario.grupodato gd
 where gd.grupofk = g.id 
   and gd.datofk  = d.id; 
+  
+select  g.id idGrupo, g.descripcion descripcionGrupo, d.id idDato, d.descripcion descripcionDato, c.nombre companiaDato   
+  from  inventario.grupo g,
+        inventario.dato d,
+        inventario.grupodato gd,
+        inventario.compania c 
+where   gd.grupofk     = g.id 
+  and   gd.datofk      = d.id
+  and   g.compania     = c.codigo
+  and   d.compania     = c.codigo; 
+  
