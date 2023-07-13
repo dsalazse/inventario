@@ -2,13 +2,11 @@ package co.com.cipres.inventario.controller;
 
 import co.com.cipres.inventario.dto.GrupoDTO;
 import co.com.cipres.inventario.service.GrupoService;
-import co.com.cipres.inventario.vo.GrupoQueryVO;
 import co.com.cipres.inventario.vo.GrupoUpdateVO;
 import co.com.cipres.inventario.vo.GrupoVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

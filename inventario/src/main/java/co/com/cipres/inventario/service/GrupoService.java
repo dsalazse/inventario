@@ -1,8 +1,6 @@
 package co.com.cipres.inventario.service;
 
-import co.com.cipres.inventario.dto.DatoDTO;
 import co.com.cipres.inventario.dto.GrupoDTO;
-import co.com.cipres.inventario.entity.Dato;
 import co.com.cipres.inventario.entity.Grupo;
 import co.com.cipres.inventario.repository.GrupoRepository;
 import co.com.cipres.inventario.vo.GrupoQueryVO;
