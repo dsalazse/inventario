@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Api(tags = "Entidad que agrupa informacion")
 @Validated
@@ -49,9 +50,11 @@ public class GrupoController {
         return grupoService.getById(id);
     }
 
+
+
     @GetMapping
-    @ApiOperation("Retrieve by query Entidad que agrupa informacion")
-    public Page<GrupoDTO> query(@Valid GrupoQueryVO vO) {
-        return grupoService.query(vO);
+    @ApiOperation("Retrieve by query Entidad que contiene un grupo")
+    public List<GrupoDTO> query(){
+        return grupoService.query();
     }
 }

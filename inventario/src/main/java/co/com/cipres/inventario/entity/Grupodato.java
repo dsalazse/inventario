@@ -4,10 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -32,6 +29,7 @@ public class Grupodato implements Serializable {
     /**
      * Relacion foranea con grupo
      */
+    /*
     @Column(name = "grupofk", nullable = false)
     @ApiModelProperty("Relacion foranea con grupo")
     private Long grupofk;
@@ -39,8 +37,17 @@ public class Grupodato implements Serializable {
     /**
      * Relacion foranea con dato
      */
+    /*
     @Column(name = "datofk", nullable = false)
     @ApiModelProperty("Relacion foranea con dato")
     private Long datofk;
+    */
 
+    @ManyToOne
+    @JoinColumn(name="grupofk")
+    private Grupo grupo;
+
+    @ManyToOne
+    @JoinColumn(name="datofk")
+    private Dato dato;
 }

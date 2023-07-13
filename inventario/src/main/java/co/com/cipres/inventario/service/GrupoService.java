@@ -1,6 +1,8 @@
 package co.com.cipres.inventario.service;
 
+import co.com.cipres.inventario.dto.DatoDTO;
 import co.com.cipres.inventario.dto.GrupoDTO;
+import co.com.cipres.inventario.entity.Dato;
 import co.com.cipres.inventario.entity.Grupo;
 import co.com.cipres.inventario.repository.GrupoRepository;
 import co.com.cipres.inventario.vo.GrupoQueryVO;
@@ -11,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -45,6 +49,10 @@ public class GrupoService {
         throw new UnsupportedOperationException();
     }
 
+    public List<GrupoDTO> query(){
+        return toDtos(grupoRepository.findAll());
+    }
+
     private GrupoDTO toDTO(Grupo original) {
         GrupoDTO bean = new GrupoDTO();
         BeanUtils.copyProperties(original, bean);
@@ -54,5 +62,17 @@ public class GrupoService {
     private Grupo requireOne(Long id) {
         return grupoRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Resource not found: " + id));
+    }
+
+    private List<GrupoDTO> toDtos(List<Grupo> original){
+        List<GrupoDTO> bean = new ArrayList<>();
+
+        for(Grupo source:original){
+            GrupoDTO target = new GrupoDTO();
+            BeanUtils.copyProperties(source,target);
+            bean.add(target);
+        }
+
+        return bean;
     }
 }

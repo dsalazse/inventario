@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import java.io.Serializable;
 
-@Data
 @ApiModel("Entidad que contiene informacion para Grupodato en reporte")
 public class GrupodatoReportsDTO implements Serializable {
 
@@ -64,5 +63,4 @@ public class GrupodatoReportsDTO implements Serializable {
      */
     @ApiModelProperty("Nombre de la compania en grupo")
     private String nombreCompaniaGrupo;
-
 }
