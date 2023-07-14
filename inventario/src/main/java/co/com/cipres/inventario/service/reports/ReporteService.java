@@ -19,4 +19,13 @@ public class ReporteService {
     public List<Grupodato> queryAllGrupoDatoReport(){
         return reporteEntity.queryAllGrupoDatoReport() ;
     }
+
+
+    /*
+     *  proposito retornar la informacion completa de todos los datos
+     *            de las tablas: grupo, datos y grupodatos
+     * */
+    public List<Grupodato> queryAllGrupoDatoReportTipoTercero(Long id) {
+        return reporteEntity.queryAllGrupoDatoReportTipoTercero(id);
+    }
 }

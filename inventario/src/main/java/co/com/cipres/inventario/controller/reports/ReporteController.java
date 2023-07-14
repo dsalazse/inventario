@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,5 +33,15 @@ public class ReporteController {
     @ApiOperation("Retrieve by query grupo, dato and grupodato in one single entity")
     public List<Grupodato> queryAllGrupoDatoReports(){
         return reporteService.queryAllGrupoDatoReport();
+    }
+
+    /*
+     * Retorna todos los datos de la fusion de las tablas grupo
+     *                   datos y grupodatos
+     * */
+    @GetMapping(value = "/queryAllGrupoDatoTipoTercero/{id}")
+    @ApiOperation("Retrieve by query grupo, dato and grupodato in one single entity")
+    public List<Grupodato> queryAllGrupoDatoTipoTercero(@PathVariable Long id){
+        return reporteService.queryAllGrupoDatoReportTipoTercero(id);
     }
 }
