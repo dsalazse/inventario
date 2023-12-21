@@ -9,8 +9,13 @@ import java.util.List;
 
 @Service
 public class ReporteService {
+
+    private final ReporteRepository reporteEntity;
+
     @Autowired
-    ReporteRepository reporteEntity;
+    public ReporteService(ReporteRepository reporteEntity) {
+        this.reporteEntity = reporteEntity;
+    }
 
     /*
     *  proposito retornar la informacion completa de todos los datos

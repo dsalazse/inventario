@@ -2,13 +2,11 @@ package co.com.cipres.inventario.controller;
 
 import co.com.cipres.inventario.dto.CentrocostoDTO;
 import co.com.cipres.inventario.service.CentrocostoService;
-import co.com.cipres.inventario.vo.CentrocostoQueryVO;
 import co.com.cipres.inventario.vo.CentrocostoUpdateVO;
 import co.com.cipres.inventario.vo.CentrocostoVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +20,11 @@ import java.util.List;
 @RequestMapping("/centrocosto")
 public class CentrocostoController {
 
-    @Autowired
     private CentrocostoService centrocostoService;
+    @Autowired
+    public CentrocostoController(CentrocostoService centrocostoService) {
+        this.centrocostoService = centrocostoService;
+    }
 
     @PostMapping
     @ApiOperation("Save Informacion del centro de costo")

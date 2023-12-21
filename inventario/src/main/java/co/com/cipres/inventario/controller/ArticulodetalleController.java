@@ -20,9 +20,12 @@ import javax.validation.constraints.NotNull;
 @RestController
 @RequestMapping("/articulodetalle")
 public class ArticulodetalleController {
+    private ArticulodetalleService articulodetalleService;
 
     @Autowired
-    private ArticulodetalleService articulodetalleService;
+    public ArticulodetalleController(ArticulodetalleService articulodetalleService) {
+        this.articulodetalleService = articulodetalleService;
+    }
 
     @PostMapping
     @ApiOperation("Save Inventario de servicios articulos el detalle")

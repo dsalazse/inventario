@@ -2,13 +2,11 @@ package co.com.cipres.inventario.controller;
 
 import co.com.cipres.inventario.dto.ArticulocontrolDTO;
 import co.com.cipres.inventario.service.ArticulocontrolService;
-import co.com.cipres.inventario.vo.ArticulocontrolQueryVO;
 import co.com.cipres.inventario.vo.ArticulocontrolUpdateVO;
 import co.com.cipres.inventario.vo.ArticulocontrolVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +20,12 @@ import java.util.List;
 @RequestMapping("/articulocontrol")
 public class ArticulocontrolController {
 
-    @Autowired
     private ArticulocontrolService articulocontrolService;
+
+    @Autowired
+    public ArticulocontrolController(ArticulocontrolService articulocontrolService) {
+        this.articulocontrolService = articulocontrolService;
+    }
 
     @PostMapping
     @ApiOperation("Save ")

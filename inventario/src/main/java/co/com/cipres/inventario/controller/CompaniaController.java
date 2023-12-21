@@ -21,8 +21,12 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/compania")
 public class CompaniaController {
 
-    @Autowired
     private CompaniaService companiaService;
+
+    @Autowired
+    public CompaniaController(CompaniaService companiaService) {
+        this.companiaService = companiaService;
+    }
 
     @PostMapping
     @ApiOperation("Save Define una compania nombre comercial")

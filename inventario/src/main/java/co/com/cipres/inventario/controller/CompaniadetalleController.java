@@ -21,8 +21,13 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/companiadetalle")
 public class CompaniadetalleController {
 
-    @Autowired
     private CompaniadetalleService companiadetalleService;
+
+
+    @Autowired
+    public CompaniadetalleController(CompaniadetalleService companiadetalleService) {
+        this.companiadetalleService = companiadetalleService;
+    }
 
     @PostMapping
     @ApiOperation("Save Define detalles de una compania comercial")

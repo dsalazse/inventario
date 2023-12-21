@@ -1,6 +1,5 @@
 package co.com.cipres.inventario.service;
 
-import co.com.cipres.inventario.dto.DatoDTO;
 import co.com.cipres.inventario.dto.GrupodatoDTO;
 import co.com.cipres.inventario.entity.Grupodato;
 import co.com.cipres.inventario.repository.GrupodatoRepository;
@@ -16,9 +15,12 @@ import java.util.NoSuchElementException;
 
 @Service
 public class GrupodatoService {
+    private GrupodatoRepository grupodatoRepository;
 
     @Autowired
-    private GrupodatoRepository grupodatoRepository;
+    public GrupodatoService(GrupodatoRepository grupodatoRepository) {
+        this.grupodatoRepository = grupodatoRepository;
+    }
 
     public Long save(GrupodatoVO vO) {
         Grupodato bean = new Grupodato();
@@ -56,15 +58,12 @@ public class GrupodatoService {
     }
 
     private List<GrupodatoDTO> toDtos(List<Grupodato> original){
-        List<GrupodatoDTO> bean = new ArrayList<GrupodatoDTO>();
+        List<GrupodatoDTO> bean = new ArrayList<>();
         for(Grupodato source:original){
             GrupodatoDTO target = new GrupodatoDTO();
             BeanUtils.copyProperties(source,target);
             bean.add(target);
         }
-
         return bean;
     }
-
-
 }

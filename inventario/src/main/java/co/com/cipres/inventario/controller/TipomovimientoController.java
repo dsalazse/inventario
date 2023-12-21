@@ -21,8 +21,12 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/tipomovimiento")
 public class TipomovimientoController {
 
-    @Autowired
     private TipomovimientoService tipomovimientoService;
+
+    @Autowired
+    public TipomovimientoController(TipomovimientoService tipomovimientoService) {
+        this.tipomovimientoService = tipomovimientoService;
+    }
 
     @PostMapping
     @ApiOperation("Save Informacion de la operacion o del tipo de movimiento")

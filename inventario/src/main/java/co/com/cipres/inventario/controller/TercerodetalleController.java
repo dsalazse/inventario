@@ -21,8 +21,12 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/tercerodetalle")
 public class TercerodetalleController {
 
-    @Autowired
     private TercerodetalleService tercerodetalleService;
+
+    @Autowired
+    public TercerodetalleController(TercerodetalleService tercerodetalleService) {
+        this.tercerodetalleService = tercerodetalleService;
+    }
 
     @PostMapping
     @ApiOperation("Save Terceros informacion detallada")

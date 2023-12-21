@@ -16,8 +16,15 @@ import java.util.NoSuchElementException;
 @Service
 public class ArticuloService {
 
-    @Autowired
     private ArticuloRepository articuloRepository;
+
+    @Autowired
+    public ArticuloService(ArticuloRepository articuloRepository) {
+        this.articuloRepository = articuloRepository;
+    }
+
+
+
 
     public Long save(ArticuloVO vO) {
         Articulo bean = new Articulo();

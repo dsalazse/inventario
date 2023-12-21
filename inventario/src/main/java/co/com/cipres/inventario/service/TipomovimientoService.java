@@ -16,8 +16,12 @@ import java.util.NoSuchElementException;
 @Service
 public class TipomovimientoService {
 
-    @Autowired
     private TipomovimientoRepository tipomovimientoRepository;
+
+    @Autowired
+    public TipomovimientoService(TipomovimientoRepository tipomovimientoRepository) {
+        this.tipomovimientoRepository = tipomovimientoRepository;
+    }
 
     public Long save(TipomovimientoVO vO) {
         Tipomovimiento bean = new Tipomovimiento();

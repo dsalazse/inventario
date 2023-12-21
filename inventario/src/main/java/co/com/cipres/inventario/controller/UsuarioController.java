@@ -21,8 +21,12 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-    @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
     @PostMapping
     @ApiOperation("Save Entidad para guardar usuarios autorizados al servicio")

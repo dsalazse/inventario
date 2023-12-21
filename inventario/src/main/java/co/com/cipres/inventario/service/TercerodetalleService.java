@@ -16,8 +16,12 @@ import java.util.NoSuchElementException;
 @Service
 public class TercerodetalleService {
 
-    @Autowired
     private TercerodetalleRepository tercerodetalleRepository;
+
+    @Autowired
+    public TercerodetalleService(TercerodetalleRepository tercerodetalleRepository) {
+        this.tercerodetalleRepository = tercerodetalleRepository;
+    }
 
     public Long save(TercerodetalleVO vO) {
         Tercerodetalle bean = new Tercerodetalle();

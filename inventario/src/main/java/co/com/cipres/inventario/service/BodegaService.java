@@ -3,12 +3,10 @@ package co.com.cipres.inventario.service;
 import co.com.cipres.inventario.dto.BodegaDTO;
 import co.com.cipres.inventario.entity.Bodega;
 import co.com.cipres.inventario.repository.BodegaRepository;
-import co.com.cipres.inventario.vo.BodegaQueryVO;
 import co.com.cipres.inventario.vo.BodegaUpdateVO;
 import co.com.cipres.inventario.vo.BodegaVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,8 +16,12 @@ import java.util.NoSuchElementException;
 @Service
 public class BodegaService {
 
-    @Autowired
     private BodegaRepository bodegaRepository;
+
+    @Autowired
+    public BodegaService(BodegaRepository bodegaRepository) {
+        this.bodegaRepository = bodegaRepository;
+    }
 
     public Long save(BodegaVO vO) {
         Bodega bean = new Bodega();
@@ -63,7 +65,7 @@ public class BodegaService {
     }
 
     private List<BodegaDTO> toDtos(List<Bodega> original){
-        List<BodegaDTO> bean = new ArrayList<BodegaDTO>();
+        List<BodegaDTO> bean = new ArrayList<>();
 
         for(Bodega source:original){
             BodegaDTO target = new BodegaDTO();

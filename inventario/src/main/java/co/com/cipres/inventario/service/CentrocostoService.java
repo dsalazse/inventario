@@ -3,13 +3,10 @@ package co.com.cipres.inventario.service;
 import co.com.cipres.inventario.dto.CentrocostoDTO;
 import co.com.cipres.inventario.entity.Centrocosto;
 import co.com.cipres.inventario.repository.CentrocostoRepository;
-import co.com.cipres.inventario.vo.CentrocostoQueryVO;
 import co.com.cipres.inventario.vo.CentrocostoUpdateVO;
 import co.com.cipres.inventario.vo.CentrocostoVO;
-import net.bytebuddy.description.type.TypeDescription;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,8 +16,12 @@ import java.util.NoSuchElementException;
 @Service
 public class CentrocostoService {
 
-    @Autowired
     private CentrocostoRepository centrocostoRepository;
+
+    @Autowired
+    public CentrocostoService(CentrocostoRepository centrocostoRepository) {
+        this.centrocostoRepository = centrocostoRepository;
+    }
 
     public Long save(CentrocostoVO vO) {
         Centrocosto bean = new Centrocosto();
@@ -62,7 +63,7 @@ public class CentrocostoService {
     }
 
     private List<CentrocostoDTO> toDtos(List<Centrocosto> original){
-        List<CentrocostoDTO> bean = new ArrayList<CentrocostoDTO>();
+        List<CentrocostoDTO> bean = new ArrayList<>();
         for(Centrocosto source : original){
             CentrocostoDTO target = new CentrocostoDTO();
             BeanUtils.copyProperties(source,target);

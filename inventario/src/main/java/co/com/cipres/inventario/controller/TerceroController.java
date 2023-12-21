@@ -21,8 +21,12 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/tercero")
 public class TerceroController {
 
-    @Autowired
     private TerceroService terceroService;
+
+    @Autowired
+    public TerceroController(TerceroService terceroService) {
+        this.terceroService = terceroService;
+    }
 
     @PostMapping
     @ApiOperation("Save Terceros participan en alguna transaccion")

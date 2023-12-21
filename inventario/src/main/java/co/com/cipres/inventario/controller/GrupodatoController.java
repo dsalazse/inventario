@@ -8,7 +8,6 @@ import co.com.cipres.inventario.vo.GrupodatoVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +21,12 @@ import java.util.List;
 @RequestMapping("/grupodato")
 public class GrupodatoController {
 
-    @Autowired
     private GrupodatoService grupodatoService;
+
+    @Autowired
+    public GrupodatoController(GrupodatoService grupodatoService) {
+        this.grupodatoService = grupodatoService;
+    }
 
     @PostMapping
     @ApiOperation("Save Entidad de rompimiento entre grupo y dato")

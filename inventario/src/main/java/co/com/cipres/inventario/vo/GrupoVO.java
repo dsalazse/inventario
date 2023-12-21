@@ -3,10 +3,7 @@ package co.com.cipres.inventario.vo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
 import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 @Data

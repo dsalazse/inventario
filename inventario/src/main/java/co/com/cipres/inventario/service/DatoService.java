@@ -1,8 +1,6 @@
 package co.com.cipres.inventario.service;
 
-import co.com.cipres.inventario.dto.BodegaDTO;
 import co.com.cipres.inventario.dto.DatoDTO;
-import co.com.cipres.inventario.entity.Bodega;
 import co.com.cipres.inventario.entity.Dato;
 import co.com.cipres.inventario.repository.DatoRepository;
 import co.com.cipres.inventario.vo.DatoUpdateVO;
@@ -17,9 +15,12 @@ import java.util.NoSuchElementException;
 
 @Service
 public class DatoService {
+    private DatoRepository datoRepository;
 
     @Autowired
-    private DatoRepository datoRepository;
+    public DatoService(DatoRepository datoRepository) {
+        this.datoRepository = datoRepository;
+    }
 
     public Long save(DatoVO vO) {
         Dato bean = new Dato();
@@ -60,7 +61,7 @@ public class DatoService {
     }
 
     private List<DatoDTO> toDtos(List<Dato> original){
-        List<DatoDTO> bean = new ArrayList<DatoDTO>();
+        List<DatoDTO> bean = new ArrayList<>();
         for(Dato source:original){
             DatoDTO target = new DatoDTO();
             BeanUtils.copyProperties(source,target);

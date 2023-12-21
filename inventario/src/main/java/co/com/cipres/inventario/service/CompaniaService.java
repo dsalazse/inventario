@@ -15,9 +15,12 @@ import java.util.NoSuchElementException;
 
 @Service
 public class CompaniaService {
+    private CompaniaRepository companiaRepository;
 
     @Autowired
-    private CompaniaRepository companiaRepository;
+    public CompaniaService(CompaniaRepository companiaRepository) {
+        this.companiaRepository = companiaRepository;
+    }
 
     public Long save(CompaniaVO vO) {
         Compania bean = new Compania();

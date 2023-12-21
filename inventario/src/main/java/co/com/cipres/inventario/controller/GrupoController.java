@@ -20,8 +20,13 @@ import java.util.List;
 @RequestMapping("/grupo")
 public class GrupoController {
 
-    @Autowired
     private GrupoService grupoService;
+
+
+    @Autowired
+    public GrupoController(GrupoService grupoService) {
+        this.grupoService = grupoService;
+    }
 
     @PostMapping
     @ApiOperation("Save Entidad que agrupa informacion")

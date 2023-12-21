@@ -3,30 +3,25 @@ package co.com.cipres.inventario.service;
 import co.com.cipres.inventario.dto.ArticulocontrolDTO;
 import co.com.cipres.inventario.entity.Articulocontrol;
 import co.com.cipres.inventario.repository.ArticulocontrolRepository;
-import co.com.cipres.inventario.vo.ArticulocontrolQueryVO;
 import co.com.cipres.inventario.vo.ArticulocontrolUpdateVO;
 import co.com.cipres.inventario.vo.ArticulocontrolVO;
-import com.mchange.v1.util.ListUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 @Service
 public class ArticulocontrolService {
+    private ArticulocontrolRepository articulocontrolRepository;
 
     @Autowired
-    private ArticulocontrolRepository articulocontrolRepository;
+    public ArticulocontrolService(ArticulocontrolRepository articulocontrolRepository) {
+        this.articulocontrolRepository = articulocontrolRepository;
+    }
 
     public Long save(ArticulocontrolVO vO) {
         Articulocontrol bean = new Articulocontrol();
@@ -71,7 +66,7 @@ public class ArticulocontrolService {
     }
 
     private List<ArticulocontrolDTO> toDTO(List<Articulocontrol> original){
-        List<ArticulocontrolDTO> bean = new ArrayList<ArticulocontrolDTO>();
+        List<ArticulocontrolDTO> bean = new ArrayList<>();
 
         for(Articulocontrol source : original){
             ArticulocontrolDTO target = new ArticulocontrolDTO();

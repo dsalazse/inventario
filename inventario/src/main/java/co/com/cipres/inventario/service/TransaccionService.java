@@ -16,8 +16,12 @@ import java.util.NoSuchElementException;
 @Service
 public class TransaccionService {
 
-    @Autowired
     private TransaccionRepository transaccionRepository;
+
+    @Autowired
+    public TransaccionService(TransaccionRepository transaccionRepository) {
+        this.transaccionRepository = transaccionRepository;
+    }
 
     public Long save(TransaccionVO vO) {
         Transaccion bean = new Transaccion();

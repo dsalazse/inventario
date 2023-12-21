@@ -18,8 +18,13 @@ import java.util.NoSuchElementException;
 @Service
 public class GrupoService {
 
-    @Autowired
+
     private GrupoRepository grupoRepository;
+
+    @Autowired
+    public GrupoService(GrupoRepository grupoRepository) {
+        this.grupoRepository = grupoRepository;
+    }
 
     public Long save(GrupoVO vO) {
         Grupo bean = new Grupo();

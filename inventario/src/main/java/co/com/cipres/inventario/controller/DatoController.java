@@ -2,13 +2,11 @@ package co.com.cipres.inventario.controller;
 
 import co.com.cipres.inventario.dto.DatoDTO;
 import co.com.cipres.inventario.service.DatoService;
-import co.com.cipres.inventario.vo.DatoQueryVO;
 import co.com.cipres.inventario.vo.DatoUpdateVO;
 import co.com.cipres.inventario.vo.DatoVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,9 +19,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/dato")
 public class DatoController {
+    private DatoService datoService;
+
 
     @Autowired
-    private DatoService datoService;
+    public DatoController(DatoService datoService) {
+        this.datoService = datoService;
+    }
 
     @PostMapping
     @ApiOperation("Save Entidad que contiene un dato")

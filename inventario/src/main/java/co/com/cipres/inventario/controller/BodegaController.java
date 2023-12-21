@@ -2,13 +2,11 @@ package co.com.cipres.inventario.controller;
 
 import co.com.cipres.inventario.dto.BodegaDTO;
 import co.com.cipres.inventario.service.BodegaService;
-import co.com.cipres.inventario.vo.BodegaQueryVO;
 import co.com.cipres.inventario.vo.BodegaUpdateVO;
 import co.com.cipres.inventario.vo.BodegaVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +20,12 @@ import java.util.List;
 @RequestMapping("/bodega")
 public class BodegaController {
 
-    @Autowired
     private BodegaService bodegaService;
+
+    @Autowired
+    public BodegaController(BodegaService bodegaService) {
+        this.bodegaService = bodegaService;
+    }
 
     @PostMapping
     @ApiOperation("Save Informacion de la bodega(caja)")

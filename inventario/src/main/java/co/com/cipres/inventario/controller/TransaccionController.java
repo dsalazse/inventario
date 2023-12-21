@@ -21,8 +21,12 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/transaccion")
 public class TransaccionController {
 
-    @Autowired
     private TransaccionService transaccionService;
+
+    @Autowired
+    public TransaccionController(TransaccionService transaccionService) {
+        this.transaccionService = transaccionService;
+    }
 
     @PostMapping
     @ApiOperation("Save Tabla de transacciones detallada")
